@@ -1,0 +1,21 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.site-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  /* 空きスペースがあれば広がる設定 */
+  /* これにより、ページ全体を縦に引き伸ばし、フッターを最下部に配置可能 */
+  flex: 1;
+}
+
+.page-footer {
+  margin-top: auto;
+}

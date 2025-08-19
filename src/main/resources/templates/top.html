@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      rel="stylesheet"
+    />
+    <!--Import internal css-->
+    <link rel="stylesheet" href="../static/css/common.css" />
+    <link rel="stylesheet" href="../static/css/top.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <title>宿泊施設予約サイト</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="white z-depth-1">
+        <div class="nav-wrapper container">
+          <a href="top.html" class="brand-logo">
+            <img
+              src="../static/img/logo.png"
+              alt="宿泊予約サイトロゴ"
+              class="logo-img"
+            />
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="hotel_list.html" class="black-text">施設一覧</a></li>
+            <li><a href="mypage.html" class="black-text">マイページ</a></li>
+            <li><a href="login.html" class="black-text">ログイン</a></li>
+            <li>
+              <a href="register.html" class="btn blue lighten-1 white-text"
+                >会員登録</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- 検索フォーム -->
+    <div class="container search-form">
+      <div class="card-panel teal lighten-5 z-depth-1">
+        <form class="row" style="margin: 0">
+          <div class="input-field col s12 m4">
+            <input type="text" id="search" placeholder="施設名・キーワード" />
+            <label for="search">検索ワード</label>
+          </div>
+          <div class="input-field col s6 m3">
+            <input
+              type="text"
+              id="checkin"
+              class="datepicker"
+              placeholder="例: 2025/07/01"
+            />
+            <label for="checkin">チェックイン日</label>
+          </div>
+          <div class="input-field col s6 m3">
+            <input
+              type="text"
+              id="checkout"
+              class="datepicker"
+              placeholder="例: 2025/07/02"
+            />
+            <label for="checkout">チェックアウト日</label>
+          </div>
+          <div class="input-field col s12 m2 center-align">
+            <button
+              class="btn waves-effect waves-light lighten-3"
+              type="submit"
+              style="width: 100%"
+            >
+              検　索
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="container">
+      <div class="row">
+        <!-- エリアから探す -->
+        <div class="col s12 m4 l3">
+          <h5 class="center-align">地域選択</h5>
+          <ul class="collapsible">
+            <!-- 静的アコーディオン -->
+            <li>
+              <div class="collapsible-header">
+                <i class="material-icons">place</i>北海道
+              </div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>北海道</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">東北</div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>青森県</li>
+                  <li>岩手県</li>
+                  <li>宮城県</li>
+                  <li>秋田県</li>
+                  <li>山形県</li>
+                  <li>福島県</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">関東</div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>茨城県</li>
+                  <li>栃木県</li>
+                  <li>群馬県</li>
+                  <li>埼玉県</li>
+                  <li>千葉県</li>
+                  <li>東京都</li>
+                  <li>神奈川県</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">中部</div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>新潟県</li>
+                  <li>富山県</li>
+                  <li>石川県</li>
+                  <li>福井県</li>
+                  <li>山梨県</li>
+                  <li>長野県</li>
+                  <li>岐阜県</li>
+                  <li>静岡県</li>
+                  <li>愛知県</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">近畿</div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>三重県</li>
+                  <li>滋賀県</li>
+                  <li>京都府</li>
+                  <li>京都府</li>
+                  <li>大阪府</li>
+                  <li>兵庫県</li>
+                  <li>奈良県</li>
+                  <li>和歌山県</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">中国・四国</div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>鳥取県</li>
+                  <li>島根県</li>
+                  <li>岡山県</li>
+                  <li>広島県</li>
+                  <li>山口県</li>
+                  <li>徳島県</li>
+                  <li>香川県</li>
+                  <li>愛媛県</li>
+                  <li>高知県</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">九州</div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>福岡県</li>
+                  <li>佐賀県</li>
+                  <li>長崎県</li>
+                  <li>熊本県</li>
+                  <li>大分県</li>
+                  <li>宮崎県</li>
+                  <li>鹿児島県</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">沖縄</div>
+              <div class="collapsible-body">
+                <ul>
+                  <li>沖縄県</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 宿泊施設一覧 -->
+        <div class="col s12 m8 l9">
+          <div class="row">
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/1.png" alt="海辺のホテル青空" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">海辺のホテル青空</span>
+                  <p>沖縄県那覇市1-1-1</p>
+                  <p class="grey-text text-darken-1">1泊 ¥14,900〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/2.png" alt="高原の宿 ひだまり荘" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">高原の宿 ひだまり荘</span>
+                  <p>長野県安曇野市2-2-2</p>
+                  <p class="grey-text text-darken-1">1泊 ¥14,900〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/3.png" alt="城下町の旅館 桜庵" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">城下町の旅館 桜庵</span>
+                  <p>石川県金沢市3-3-3</p>
+                  <p class="grey-text text-darken-1">1泊 ¥14,900〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/4.png" alt="湯けむりの宿 みやこ" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">湯けむりの宿 みやこ</span>
+                  <p>大分県別府市4-4-4</p>
+                  <p class="grey-text text-darken-1">1泊 ¥19,000〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img
+                    src="../static/img/5.png"
+                    alt="湖畔のログハウス風コテージ"
+                  />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">湖畔のログハウス風コテージ</span>
+                  <p>山梨県富士河口湖町5-5-5</p>
+                  <p class="grey-text text-darken-1">1泊 ¥19,000〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/6.png" alt="天空のリゾート 星の宿" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">天空のリゾート 星の宿</span>
+                  <p>岐阜県高山市6-6-6</p>
+                  <p class="grey-text text-darken-1">1泊 ¥27,000〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img
+                    src="../static/img/7.png"
+                    alt="ヴィーガン対応の宿 森の静寂"
+                  />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">ヴィーガン対応の宿 森の静寂</span>
+                  <p>長野県軽井沢町7-7-7</p>
+                  <p class="grey-text text-darken-1">1泊 ¥25,700〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/8.png" alt="和モダンホテル つばき" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">和モダンホテル つばき</span>
+                  <p>京都府京都市8-8-8</p>
+                  <p class="grey-text text-darken-1">1泊 ¥21,600〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img
+                    src="../static/img/9.png"
+                    alt="アクティブリゾート ネイチャーグリーン"
+                  />
+                </div>
+                <div class="card-content">
+                  <span class="card-title"
+                    >アクティブリゾート ネイチャーグリーン</span
+                  >
+                  <p>山形県米沢市9-9-9</p>
+                  <p class="grey-text text-darken-1">1泊 ¥27,000〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/10.png" alt="古民家ステイ 安らぎ庵" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">古民家ステイ 安らぎ庵</span>
+                  <p>奈良県吉野町10-10-10</p>
+                  <p class="grey-text text-darken-1">1泊 ¥21,600〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img
+                    src="../static/img/11.png"
+                    alt="プレミアムスイート HOTEL橘"
+                  />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">プレミアムスイート HOTEL橘</span>
+                  <p>東京都新宿区11-11-11</p>
+                  <p class="grey-text text-darken-1">1泊 ¥27,000〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/12.png" alt="季節の宿 花かご亭" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">季節の宿 花かご亭</span>
+                  <p>栃木県日光市12-12-12</p>
+                  <p class="grey-text text-darken-1">1泊 ¥21,600〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img
+                    src="../static/img/13.png"
+                    alt="多目的グループ宿 はなまる館"
+                  />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">多目的グループ宿 はなまる館</span>
+                  <p>福島県郡山市13-13-13</p>
+                  <p class="grey-text text-darken-1">1泊 ¥21,600〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/14.png" alt="温泉旅館 なごみ荘" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">温泉旅館 なごみ荘</span>
+                  <p>熊本県黒川温泉14-14-14</p>
+                  <p class="grey-text text-darken-1">1泊 ¥29,800〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img
+                    src="../static/img/15.png"
+                    alt="ファミリーリゾート サニービーチ"
+                  />
+                </div>
+                <div class="card-content">
+                  <span class="card-title"
+                    >ファミリーリゾート サニービーチ</span
+                  >
+                  <p>千葉県館山市15-15-15</p>
+                  <p class="grey-text text-darken-1">1泊 ¥24,400〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img
+                    src="../static/img/16.png"
+                    alt="シンプルホテル ホワイト"
+                  />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">シンプルホテル ホワイト</span>
+                  <p>大阪府大阪市16-16-16</p>
+                  <p class="grey-text text-darken-1">1泊 ¥27,000〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/17.png" alt="学生合宿の宿 つどい館" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">学生合宿の宿 つどい館</span>
+                  <p>茨城県水戸市17-17-17</p>
+                  <p class="grey-text text-darken-1">1泊 ¥24,400〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card facility-card z-depth-1">
+                <div class="card-image">
+                  <img src="../static/img/18.png" alt="金の宿 鶏雅亭" />
+                </div>
+                <div class="card-content">
+                  <span class="card-title">金の宿 鶏雅亭</span>
+                  <p>宮崎県宮崎市18-18-18</p>
+                  <p class="grey-text text-darken-1">1泊 ¥27,000〜</p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END CONTAINER -->
+    </div>
+
+    <!-- フッター -->
+    <footer class="page-footer grey lighten-4 grey-text text-darken-1">
+      <div class="container center-align">
+        &copy; 2025 宿泊予約サイト All rights reserved.
+      </div>
+    </footer>
+
+    <!-- JS読み込み -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // collapsible
+        const collapsibleElems = document.querySelectorAll(".collapsible");
+        M.Collapsible.init(collapsibleElems);
+      });
+
+      // datepicker
+      const dateElems = document.querySelectorAll(".datepicker");
+      M.Datepicker.init(dateElems, {
+        format: "yyyy/mm/dd",
+        autoClose: true,
+        minDate: new Date(),
+        i18n: {
+          cancel: "キャンセル",
+          clear: "クリア",
+          done: "OK",
+          months: [
+            "1月",
+            "2月",
+            "3月",
+            "4月",
+            "5月",
+            "6月",
+            "7月",
+            "8月",
+            "9月",
+            "10月",
+            "11月",
+            "12月",
+          ],
+          weekdays: ["日", "月", "火", "水", "木", "金", "土"],
+          weekdaysShort: ["日", "月", "火", "水", "木", "金", "土"],
+          weekdaysAbbrev: ["日", "月", "火", "水", "木", "金", "土"],
+        },
+      });
+    </script>
+  </body>
+</html>

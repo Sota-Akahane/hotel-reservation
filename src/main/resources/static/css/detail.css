@@ -1,0 +1,27 @@
+/* ==========================
+    画像の設定
+   ========================== */
+.main-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ==========================
+    ホテル情報カードの設定
+   ========================== */
+.info-box {
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-top: 15px;
+}
+
+.info {
+  margin: 5px 0;
+}

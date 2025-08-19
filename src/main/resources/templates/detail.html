@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      rel="stylesheet"
+    />
+    <!--Import internal css-->
+    <link rel="stylesheet" href="../static/css/common.css" />
+    <link rel="stylesheet" href="../static/css/detail.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>宿泊施設詳細</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="white z-depth-1">
+        <div class="nav-wrapper container">
+          <a href="top.html" class="brand-logo black-text">
+            <i class="material-icons">hotel</i> 宿泊予約サイト
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="hotel_list.html" class="black-text">施設一覧</a></li>
+            <li><a href="mypage.html" class="black-text">マイページ</a></li>
+            <li><a href="login.html" class="black-text">ログイン</a></li>
+            <li>
+              <a href="register.html" class="btn">会員登録</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="container" style="margin-top: 40px">
+      <div class="row">
+        <!-- 左カラム：画像 -->
+        <div class="col s12 m5">
+          <div class="main-image">
+            <img src="../static/img/1.png" alt="宿泊施設画像" />
+          </div>
+          <div class="row">
+            <div class="col s4">
+              <img
+                src="../static/img/1.png"
+                class="responsive-img"
+                alt="サブ画像"
+              />
+            </div>
+            <div class="col s4">
+              <img
+                src="../static/img/1.png"
+                class="responsive-img"
+                alt="サブ画像"
+              />
+            </div>
+            <div class="col s4">
+              <img
+                src="../static/img/1.png"
+                class="responsive-img"
+                alt="サブ画像"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- 右カラム：情報 -->
+        <div class="col s12 m7">
+          <div class="info-box z-depth-2">
+            <!-- 施設基本情報 -->
+            <div class="section" style="margin-bottom: 30px">
+              <h5 class="blue-text text-darken-3" style="margin-bottom: 15px">
+                海辺のホテル青空
+              </h5>
+              <p style="font-size: 1rem; color: #555">
+                海が目の前に広がる絶景のリゾートホテル。波の音に癒されるひとときを。
+              </p>
+
+              <div class="price">¥14,900〜25,700（税込）</div>
+            </div>
+
+            <!-- 所在地 -->
+            <div class="section" style="margin-bottom: 10px">
+              <h6 class="grey-text text-darken-1">
+                <i class="material-icons left">place</i>所在地
+              </h6>
+              <p class="info">〒594-1074</p>
+              <p class="info">沖縄県那覇市1-1-1</p>
+            </div>
+
+            <!-- 電話番号 -->
+            <div class="section" style="margin-bottom: 30px">
+              <h6 class="grey-text text-darken-1">
+                <i class="material-icons left">phone</i> 電話番号
+              </h6>
+              <p class="info" style="margin: 5px 0">099-1146-5567</p>
+            </div>
+
+            <!-- 設備リスト -->
+            <div class="section">
+              <h6 class="grey-text text-darken-1">主な設備</h6>
+              <ul class="collection" style="margin-top: 10px">
+                <li class="collection-item">
+                  <i class="material-icons left">wifi</i>無料Wi-Fi
+                </li>
+                <li class="collection-item">
+                  <i class="material-icons left">hot_tub</i>温泉大浴場
+                </li>
+                <li class="collection-item">
+                  <i class="material-icons left">restaurant</i>レストラン＆バー
+                </li>
+                <li class="collection-item">
+                  <i class="material-icons left">local_parking</i>駐車場完備
+                </li>
+              </ul>
+            </div>
+
+            <!-- 予約フォーム -->
+            <a
+              href="reservation.html"
+              class="btn"
+              style="width: 100%; margin-top: 10px"
+              >予約する</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="page-footer grey lighten-4 grey-text text-darken-1">
+      <div class="container center-align">
+        &copy; 2025 宿泊予約サイト All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>

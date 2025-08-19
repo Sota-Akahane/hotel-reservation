@@ -1,0 +1,52 @@
+/* ==========================
+    サイドバー（アコーディオン）の設定
+   ========================== */
+.sidebar {
+  padding: 1rem;
+}
+
+.collapsible {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.collapsible-header {
+  font-weight: bold;
+}
+
+/* ==========================
+    検索フォームの設定
+   ========================== */
+.search-form {
+  margin-top: 40px;
+  max-width: 960px;
+}
+
+/* ==========================
+    カードの設定
+   ========================== */
+.facility-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.facility-card .card-content {
+  flex-grow: 1;
+}
+
+.facility-card .card-title {
+  display: block;
+  font-weight: bold;
+  min-height: 3em;
+}
+
+.facility-card .card-action {
+  margin-top: auto;
+}
+
+.card-image img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}

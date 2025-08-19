@@ -1,0 +1,14 @@
+.reservation-form {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.reservation-hotel-info {
+  width: 75%;
+  margin: 20px auto;
+}
+
+.reservation-hotel-info .card-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
