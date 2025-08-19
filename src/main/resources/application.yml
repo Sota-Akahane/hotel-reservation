@@ -1,1 +1,9 @@
-spring.application.name=hotel-reservation
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/hotel-reservation
+    username: postgres
+    password: postgres
+server:
+  servlet:
+    context-path: /rakuraku-travel
