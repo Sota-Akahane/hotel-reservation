@@ -3,7 +3,9 @@ package com.example.repository;
 import com.example.domain.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -45,5 +47,23 @@ public class HotelRepository {
                 """;
 
         return template.query(sql, HOTEL_ROW_MAPPER);
+    }
+
+    /**
+     * 主キーでホテルを検索します.
+     *
+     * @param id ホテルID
+     * @return ホテル情報
+     */
+    public Hotel findById(Integer id) {
+        String sql =
+                """
+                SELECT id,name,description,image_path,zipcode,address,telephone,region_id,deleted
+                 FROM hotels WHERE id=:id
+                """;
+        SqlParameterSource param
+                = new MapSqlParameterSource().addValue("id", id);
+
+        return template.queryForObject(sql, param, HOTEL_ROW_MAPPER);
     }
 }
