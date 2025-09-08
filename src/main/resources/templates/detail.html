@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!--Import Google Icon Font-->
     <link
@@ -12,12 +12,13 @@
       rel="stylesheet"
     />
     <!--Import internal css-->
-    <link rel="stylesheet" href="../static/css/common.css" />
-    <link rel="stylesheet" href="../static/css/detail.css" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/detail.css}" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
+
     <title>宿泊施設詳細</title>
   </head>
 
@@ -25,12 +26,18 @@
     <header>
       <nav class="white z-depth-1">
         <div class="nav-wrapper container">
-          <a href="top.html" class="brand-logo black-text">
-            <i class="material-icons">hotel</i> 宿泊予約サイト
+          <a th:href="@{/top}" class="brand-logo">
+            <img
+              th:src="@{/img/logo.png}"
+              alt="宿泊予約サイトロゴ"
+              class="logo-img"
+            />
           </a>
 
           <ul class="right hide-on-med-and-down">
-            <li><a href="hotel_list.html" class="black-text">施設一覧</a></li>
+            <li>
+              <a th:href="@{/showHotelList}" class="black-text">施設一覧</a>
+            </li>
             <li><a href="mypage.html" class="black-text">マイページ</a></li>
             <li><a href="login.html" class="black-text">ログイン</a></li>
             <li>
@@ -47,7 +54,10 @@
         <!-- 左カラム：画像 -->
         <div class="col s12 m5">
           <div class="main-image">
-            <img src="../static/img/1.png" alt="宿泊施設画像" />
+            <img
+              th:src="@{/img/} + ${hotel.imagePath}"
+              th:alt="${hotel.name}"
+            />
           </div>
           <div class="row">
             <div class="col s4">
@@ -79,10 +89,17 @@
           <div class="info-box z-depth-2">
             <!-- 施設基本情報 -->
             <div class="section" style="margin-bottom: 30px">
-              <h5 class="blue-text text-darken-3" style="margin-bottom: 15px">
+              <h5
+                class="blue-text text-darken-3"
+                style="margin-bottom: 15px"
+                th:text="${hotel.name}"
+              >
                 海辺のホテル青空
               </h5>
-              <p style="font-size: 1rem; color: #555">
+              <p
+                style="font-size: 1rem; color: #555"
+                th:text="${hotel.description}"
+              >
                 海が目の前に広がる絶景のリゾートホテル。波の音に癒されるひとときを。
               </p>
 
@@ -94,8 +111,10 @@
               <h6 class="grey-text text-darken-1">
                 <i class="material-icons left">place</i>所在地
               </h6>
-              <p class="info">〒594-1074</p>
-              <p class="info">沖縄県那覇市1-1-1</p>
+              <p class="info">
+                <span>〒</span><span th:text="${hotel.zipcode}">594-1074</span>
+              </p>
+              <p class="info" th:text="${hotel.address}">沖縄県那覇市1-1-1</p>
             </div>
 
             <!-- 電話番号 -->
@@ -103,7 +122,13 @@
               <h6 class="grey-text text-darken-1">
                 <i class="material-icons left">phone</i> 電話番号
               </h6>
-              <p class="info" style="margin: 5px 0">099-1146-5567</p>
+              <p
+                class="info"
+                style="margin: 5px 0"
+                th:text="${hotel.telephone}"
+              >
+                099-1146-5567
+              </p>
             </div>
 
             <!-- 設備リスト -->

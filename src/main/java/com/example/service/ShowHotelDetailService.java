@@ -18,7 +18,7 @@ public class ShowHotelDetailService {
 
     /**
      * ホテル詳細情報を取得します.
-     * 
+     *
      * @param id ホテルID
      * @return ホテル情報
      */

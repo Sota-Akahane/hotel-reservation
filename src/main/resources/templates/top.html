@@ -26,7 +26,7 @@
     <header>
       <nav class="white z-depth-1">
         <div class="nav-wrapper container">
-          <a href="top.html" class="brand-logo">
+          <a th:href="@{/top}" class="brand-logo">
             <img
               th:src="@{/img/logo.png}"
               alt="宿泊予約サイトロゴ"
@@ -225,7 +225,11 @@
                   <p class="grey-text text-darken-1">1泊 ¥14,900〜</p>
                 </div>
                 <div class="card-action">
-                  <a href="#" class="blue-text text-lighten-1">詳細を見る</a>
+                  <a
+                    th:href="@{/showHotelDetail?hotelId=} + ${hotel.id}"
+                    class="blue-text text-lighten-1"
+                    >詳細を見る</a
+                  >
                 </div>
               </div>
             </div>
