@@ -55,14 +55,26 @@
               <div class="card-content">
                 <span class="card-title center-align">ログイン</span>
 
-                <form>
+                <form
+                  method="post"
+                  th:action="@{/login}"
+                  th:object="${loginForm}"
+                >
+                  <div th:errors="*{email}"></div>
                   <div class="input-field">
-                    <input id="email" type="email" required />
+                    <input id="email" type="email" th:field="*{email}" />
                     <label for="email">メールアドレス</label>
                   </div>
 
                   <div class="input-field">
-                    <input id="password" type="password" required />
+                    <div th:errors="*{password}">
+                      <p>password miss</p>
+                    </div>
+                    <input
+                      id="password"
+                      type="password"
+                      th:field="*{password}"
+                    />
                     <label for="password">パスワード</label>
                   </div>
 
