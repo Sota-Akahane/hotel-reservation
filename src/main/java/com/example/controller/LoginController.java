@@ -52,6 +52,6 @@ public class LoginController {
             return "login";
         }
 
-        return "top";
+        return "redirect:/top";
     }
 }
