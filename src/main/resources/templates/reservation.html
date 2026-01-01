@@ -80,56 +80,49 @@
               </div>
 
               <form>
-                <!-- 名前 -->
-                <div class="input-field">
-                  <input id="name" type="text" required />
-                  <label for="name">宿泊者氏名</label>
-                </div>
-
-                <!-- メール -->
-                <div class="input-field">
-                  <input id="email" type="email" required />
-                  <label for="email">メールアドレス</label>
-                </div>
-
-                <!-- 電話番号 -->
-                <div class="input-field">
-                  <input id="phone" type="tel" />
-                  <label for="phone">電話番号（任意）</label>
-                </div>
-
                 <!-- チェックイン・アウト -->
                 <div class="row">
                   <div class="input-field col s6">
-                    <input type="date" id="checkin" required />
+                    <input
+                      type="date"
+                      id="checkin"
+                      name="checkin_date"
+                      required
+                    />
                     <label for="checkin">チェックイン日</label>
                   </div>
                   <div class="input-field col s6">
-                    <input type="date" id="checkout" required />
+                    <input
+                      type="date"
+                      id="checkout"
+                      name="checkout_date"
+                      required
+                    />
                     <label for="checkout">チェックアウト日</label>
                   </div>
                 </div>
 
-                <!-- 宿泊人数・部屋数 -->
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input id="guests" type="number" min="1" required />
-                    <label for="guests">宿泊人数</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="rooms" type="number" min="1" required />
-                    <label for="rooms">部屋数</label>
-                  </div>
+                <!-- 宿泊人数 -->
+                <div class="input-field">
+                  <input
+                    id="guests"
+                    name="guest_count"
+                    type="number"
+                    min="1"
+                    max="1"
+                    required
+                  />
+                  <label for="guests">宿泊人数</label>
                 </div>
 
                 <!-- 宿泊プラン選択 -->
                 <div class="input-field">
-                  <select required>
+                  <select name="plan_id" required>
                     <option value="" disabled selected>プランを選択</option>
-                    <option value="standard">素泊まりプラン</option>
-                    <option value="breakfast">朝食付きプラン</option>
-                    <option value="halfboard">2食付きプラン（朝・夕）</option>
-                    <option value="premium">特別プラン（貸切温泉付き）</option>
+                    <option value="1">素泊まりプラン</option>
+                    <option value="2">朝食付きプラン</option>
+                    <option value="3">2食付きプラン（朝・夕）</option>
+                    <option value="4">特別プラン（貸切温泉付き）</option>
                   </select>
                   <label>宿泊プラン</label>
                 </div>
