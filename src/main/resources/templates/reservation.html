@@ -12,8 +12,8 @@
       rel="stylesheet"
     />
     <!--Import internal css-->
-    <link rel="stylesheet" href="../static/css/common.css" />
-    <link rel="stylesheet" href="../static/css/reservation.css" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/reservation.css}" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,21 +58,34 @@
                 <div class="card horizontal">
                   <div class="card-image">
                     <img
-                      src="../static/img/1.png"
-                      alt="施設画像"
+                      th:src="@{/img/} + ${hotel.imagePath}"
+                      th:alt="${hotel.name}"
                       style="height: 130px"
                     />
                   </div>
                   <div class="card-stacked">
                     <div class="card-content">
-                      <h6 class="blue-text text-darken-2">海辺のホテル青空</h6>
+                      <h6
+                        class="blue-text text-darken-2"
+                        th:text="${hotel.name}"
+                      >
+                        海辺のホテル青空
+                      </h6>
                       <p
                         class="grey-text text-darken-1"
                         style="font-size: 14px"
                       >
-                        〒594-1074 <br />
-                        沖縄県那覇市1-1-1<br />
-                        電話番号: 099-1146-5567
+                        <span>〒</span
+                        ><span th:text="${hotel.zipcode}">
+                          〒594-1074 <br /> </span
+                        ><br />
+                        <span th:text="${hotel.address}">
+                          沖縄県那覇市1-1-1<br /> </span
+                        ><br />
+                        <span>電話番号: </span
+                        ><span th:text="${hotel.telephone}">
+                          電話番号: 099-1146-5567
+                        </span>
                       </p>
                     </div>
                   </div>
