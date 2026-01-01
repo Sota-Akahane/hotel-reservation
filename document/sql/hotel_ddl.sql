@@ -9,5 +9,5 @@ CREATE TABLE hotels (
     telephone VARCHAR(20),
     region_id INTEGER,
     deleted BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (region_id) REFERENCES regions (id) ON DELETE CASCADE
+    FOREIGN KEY (region_id) REFERENCES regions (id)
 );
