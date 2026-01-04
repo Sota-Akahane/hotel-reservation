@@ -92,7 +92,29 @@
                 </div>
               </div>
 
-              <form>
+              <form
+                th:action="@{/reserve}"
+                th:object="${reservationForm}"
+                method="post"
+              >
+                <!-- 名前 -->
+                <div class="input-field">
+                  <input id="name" type="text" required />
+                  <label for="name">宿泊者氏名</label>
+                </div>
+
+                <!-- メール -->
+                <div class="input-field">
+                  <input id="email" type="email" required />
+                  <label for="email">メールアドレス</label>
+                </div>
+
+                <!-- 電話番号 -->
+                <div class="input-field">
+                  <input id="phone" type="tel" />
+                  <label for="phone">電話番号（任意）</label>
+                </div>
+
                 <!-- チェックイン・アウト -->
                 <div class="row">
                   <div class="input-field col s6">
@@ -100,6 +122,7 @@
                       type="date"
                       id="checkin"
                       name="checkin_date"
+                      th:field="*{checkinDate}"
                       required
                     />
                     <label for="checkin">チェックイン日</label>
@@ -109,28 +132,34 @@
                       type="date"
                       id="checkout"
                       name="checkout_date"
+                      th:field="*{checkoutDate}"
                       required
                     />
                     <label for="checkout">チェックアウト日</label>
                   </div>
                 </div>
 
-                <!-- 宿泊人数 -->
-                <div class="input-field">
-                  <input
-                    id="guests"
-                    name="guest_count"
-                    type="number"
-                    min="1"
-                    max="1"
-                    required
-                  />
-                  <label for="guests">宿泊人数</label>
+                <!-- 宿泊人数・部屋数 -->
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input
+                      id="guests"
+                      type="number"
+                      min="1"
+                      th:field="*{guestCount}"
+                      required
+                    />
+                    <label for="guests">宿泊人数</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="rooms" type="number" min="1" required />
+                    <label for="rooms">部屋数</label>
+                  </div>
                 </div>
 
                 <!-- 宿泊プラン選択 -->
                 <div class="input-field">
-                  <select name="plan_id" required>
+                  <select name="plan_id" th:field="*{planId}" required>
                     <option value="" disabled selected>プランを選択</option>
                     <option value="1">素泊まりプラン</option>
                     <option value="2">朝食付きプラン</option>
@@ -150,7 +179,7 @@
                       name="payment"
                       class="with-gap"
                       type="radio"
-                      value="credit"
+                      value="1"
                       required
                     />
                     <span>クレジットカード</span>
@@ -162,7 +191,7 @@
                       name="payment"
                       class="with-gap"
                       type="radio"
-                      value="cash"
+                      value="2"
                     />
                     <span>現地現金払い</span>
                   </label>
@@ -173,7 +202,7 @@
                       name="payment"
                       class="with-gap"
                       type="radio"
-                      value="emoney"
+                      value="3"
                     />
                     <span>電子マネー（PayPay等）</span>
                   </label>
