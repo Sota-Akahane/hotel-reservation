@@ -99,19 +99,33 @@
               >
                 <!-- 名前 -->
                 <div class="input-field">
-                  <input id="name" type="text" required />
+                  <input
+                    id="name"
+                    type="text"
+                    th:value="${session.loginUser.name}"
+                    required
+                  />
                   <label for="name">宿泊者氏名</label>
                 </div>
 
                 <!-- メール -->
                 <div class="input-field">
-                  <input id="email" type="email" required />
+                  <input
+                    id="email"
+                    type="email"
+                    th:value="${session.loginUser.email}"
+                    required
+                  />
                   <label for="email">メールアドレス</label>
                 </div>
 
                 <!-- 電話番号 -->
                 <div class="input-field">
-                  <input id="phone" type="tel" />
+                  <input
+                    id="phone"
+                    type="tel"
+                    th:value="${session.loginUser.telephone}"
+                  />
                   <label for="phone">電話番号（任意）</label>
                 </div>
 

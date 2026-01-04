@@ -25,7 +25,8 @@ public class ReservationController {
      * @return 予約画面
      */
     @GetMapping("")
-    public String toReservation(Integer hotelId, Model model, ReservationForm reservationForm) {
+    public String toReservation(Integer hotelId, Model model, ReservationForm reservationForm, HttpSession session) {
+        User loginUser = (User) session.getAttribute("loginUser");
         ReservationDto reservationDto = reservationService.getReservationDto(hotelId);
         model.addAttribute("hotel", reservationDto);
         return "reservation";
