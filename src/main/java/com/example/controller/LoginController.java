@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.domain.User;
 import com.example.form.LoginForm;
 import com.example.service.LoginService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +43,8 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@Validated LoginForm loginForm,
                         BindingResult result,
-                        Model model) {
+                        Model model,
+                        HttpSession session) {
         if (result.hasErrors()) {
             return "login";
         }
@@ -51,6 +53,8 @@ public class LoginController {
         if(user == null) {
             return "login";
         }
+
+        session.setAttribute("loginUser", user);
 
         return "redirect:/top";
     }

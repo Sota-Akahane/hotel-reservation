@@ -61,12 +61,21 @@
                 <strong>メールアドレス：</strong> yamada@example.com
               </li>
               <li class="collection-item">
-                <strong>チェックイン日：</strong> 2025年7月1日
+                <strong>チェックイン日： </strong
+                ><span th:text="${reservationForm.checkinDate}">
+                  2025年7月1日</span
+                >
               </li>
               <li class="collection-item">
-                <strong>チェックアウト日：</strong> 2025年7月3日
+                <strong>チェックアウト日： </strong
+                ><span th:text="${reservationForm.checkoutDate}">
+                  2025年7月3日</span
+                >
               </li>
-              <li class="collection-item"><strong>宿泊人数：</strong> 2名</li>
+              <li class="collection-item">
+                <strong>宿泊人数： </strong
+                ><span th:text="${reservationForm.guestCount}">2名</span>
+              </li>
               <li class="collection-item"><strong>部屋数：</strong> 1部屋</li>
               <li class="collection-item">
                 <strong>宿泊プラン：</strong> 2食付きプラン
