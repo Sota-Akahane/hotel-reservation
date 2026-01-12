@@ -56,7 +56,7 @@ public class ReservationController {
     @PostMapping("/complete")
     public String reserve(ReservationForm reservationForm, HttpSession session) {
         User loginUser = (User) session.getAttribute("loginUser");
-        reservationService.Reserve(reservationForm, loginUser.getId());
+        reservationService.reserve(reservationForm, loginUser.getId());
         return "complete";
     }
 }

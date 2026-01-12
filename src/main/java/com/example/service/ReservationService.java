@@ -34,13 +34,12 @@ public class ReservationService {
         return reservationDto;
     }
 
-    public void Reserve(ReservationForm reservationForm, Integer userId) {
+    public void reserve(ReservationForm reservationForm, Integer userId) {
         Reservation reservation = new Reservation();
         reservation.setUserId(userId);
         reservation.setRoomId(reservationForm.getRoomId());
         reservation.setCheckinDate(reservationForm.getCheckinDate());
         reservation.setCheckoutDate(reservationForm.getCheckoutDate());
-        reservation.setPaymentMethod(reservationForm.getPaymentMethod());
         reservation.setGuestCount(reservationForm.getGuestCount());
         reservation.setPlanId(reservationForm.getPlanId());
         reservation.setPaymentMethod(reservationForm.getPaymentMethod());

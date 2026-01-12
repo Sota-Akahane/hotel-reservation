@@ -50,9 +50,9 @@ public class ReservationRepository {
                 .addValue("checkoutDate", reservation.getCheckoutDate())
                 .addValue("guestCount", reservation.getGuestCount())
                 .addValue("planId", reservation.getPlanId())
-                .addValue("paymentMethod", "credit")
+                .addValue("paymentMethod", 1)
                 .addValue("totalPrice", 5000)
-                .addValue("status", "booked");
+                .addValue("status", 1);
 
         template.update(sql, param);
     }
