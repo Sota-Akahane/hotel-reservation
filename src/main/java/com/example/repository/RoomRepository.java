@@ -28,8 +28,27 @@ public class RoomRepository {
         room.setCapacity(rs.getInt("capacity"));
         room.setPrice(rs.getInt("price"));
         room.setDescription(rs.getString("description"));
+        room.setImagePath(rs.getString("image_path"));
         return room;
     };
+
+    /**
+     * 主キーで部屋を検索する.
+     *
+     * @param id 部屋ID
+     * @return 部屋情報
+     */
+    public Room findById(Integer id) {
+        String sql =
+                """
+                SELECT id,hotel_id,name,capacity,price,description,image_path FROM rooms
+                 WHERE id=:id
+                """;
+
+        SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+
+        return template.queryForObject(sql, param, ROOM_ROW_MAPPER);
+    }
 
     /**
      * ホテルに存在する部屋の一覧を取得する.
@@ -40,7 +59,7 @@ public class RoomRepository {
     public List<Room> findByHotelId(Integer hotelId) {
         String sql =
                 """
-                SELECT id,hotel_id,name,capacity,price,description FROM rooms
+                SELECT id,hotel_id,name,capacity,price,description,image_path FROM rooms
                  WHERE hotel_id=:hotelId
                 """;
 

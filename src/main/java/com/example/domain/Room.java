@@ -16,6 +16,8 @@ public class Room {
     private Integer price;
     /** 説明 */
     private String description;
+    /** 画像パス */
+    private String imagePath;
 
     public Integer getId() {
         return id;
@@ -63,5 +65,13 @@ public class Room {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

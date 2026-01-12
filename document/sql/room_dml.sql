@@ -1,4 +1,4 @@
-INSERT INTO rooms (hotel_id, name, capacity, price, description) VALUES
+INSERT INTO rooms (hotel_id, name, capacity, price, description, image_path) VALUES
 (1, 'シングル', 1, 12000, '海を望む窓から心地よい景色が広がる、落ち着いた雰囲気のシングルルームです。', '1.png'),
 (1, 'ダブル', 2, 18000, 'オーシャンビューを楽しめる広めのダブルルームで、カップルにもおすすめです。', '2.png'),
 
