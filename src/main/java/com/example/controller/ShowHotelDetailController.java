@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.domain.Hotel;
+import com.example.dto.HotelDetailDto;
 import com.example.service.ShowHotelDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +21,9 @@ public class ShowHotelDetailController {
 
     @GetMapping("/showHotelDetail")
     public String showHotelDetail(Integer hotelId, Model model) {
-        Hotel hotel = hotelDetailService.showHotelDetail(hotelId);
-        model.addAttribute("hotel", hotel);
+        HotelDetailDto hotelDetail = hotelDetailService.showHotelDetail(hotelId);
+        model.addAttribute("hotel", hotelDetail.getHotel());
+        model.addAttribute("rooms", hotelDetail.getRooms());
         return "detail";
     }
 }
