@@ -9,10 +9,10 @@ CREATE TABLE reservations (
     guest_count INTEGER NOT NULL,
 
     plan_id INTEGER, -- 今は意味を持たせない
-    payment_method VARCHAR(20) NOT NULL,
+    payment_method INTEGER NOT NULL,
 
     total_price INTEGER NOT NULL,
-    status VARCHAR(20) DEFAULT 'booked',
+    status INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (user_id) REFERENCES users (id),

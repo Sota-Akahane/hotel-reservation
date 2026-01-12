@@ -49,51 +49,101 @@
 
     <div class="site-wrapper">
       <div class="container" style="margin-top: 60px; max-width: 700px">
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title center-align">予約内容の確認</span>
+        <form
+          th:action="@{/reserve/complete}"
+          th:object="${reservationForm}"
+          method="post"
+        >
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title center-align">予約内容の確認</span>
 
-            <ul class="collection">
-              <li class="collection-item">
-                <strong>宿泊者氏名：</strong> 山田 太郎
-              </li>
-              <li class="collection-item">
-                <strong>メールアドレス：</strong> yamada@example.com
-              </li>
-              <li class="collection-item">
-                <strong>チェックイン日：</strong> 2025年7月1日
-              </li>
-              <li class="collection-item">
-                <strong>チェックアウト日：</strong> 2025年7月3日
-              </li>
-              <li class="collection-item"><strong>宿泊人数：</strong> 2名</li>
-              <li class="collection-item"><strong>部屋数：</strong> 1部屋</li>
-              <li class="collection-item">
-                <strong>宿泊プラン：</strong> 2食付きプラン
-              </li>
-              <li class="collection-item">
-                <strong>支払い方法：</strong> クレジットカード
-              </li>
-              <li class="collection-item">
-                <strong>ご要望：</strong> 高層階を希望
-              </li>
-              <li class="collection-item">
-                <strong>見積もり料金：</strong> ¥52,000
-              </li>
-            </ul>
+              <ul class="collection">
+                <li class="collection-item">
+                  <strong>宿泊者氏名：</strong
+                  ><span th:text="${session.loginUser.name}">山田 太郎</span>
+                </li>
+                <li class="collection-item">
+                  <strong>メールアドレス：</strong
+                  ><span th:text="${session.loginUser.email}"
+                    >yamada@example.com</span
+                  >
+                </li>
+                <li class="collection-item">
+                  <strong>チェックイン日： </strong
+                  ><span th:text="${reservationForm.checkinDate}">
+                    2025年7月1日</span
+                  >
+                </li>
+                <li class="collection-item">
+                  <strong>チェックアウト日： </strong
+                  ><span th:text="${reservationForm.checkoutDate}">
+                    2025年7月3日</span
+                  >
+                </li>
+                <li class="collection-item">
+                  <strong>宿泊人数： </strong
+                  ><span th:text="${reservationForm.guestCount}">2名</span>
+                </li>
+                <li class="collection-item"><strong>部屋数：</strong> 1部屋</li>
+                <li class="collection-item">
+                  <strong>宿泊プラン：</strong> 2食付きプラン
+                </li>
+                <li class="collection-item">
+                  <strong>支払い方法：</strong> クレジットカード
+                </li>
+                <li class="collection-item">
+                  <strong>ご要望：</strong> 高層階を希望
+                </li>
+                <li class="collection-item">
+                  <strong>見積もり料金：</strong> ¥52,000
+                </li>
+              </ul>
 
-            <div class="center-align" style="margin-top: 20px">
-              <a href="complete.html" class="btn waves-effect waves-light"
-                >予約を確定する</a
+              <input
+                type="hidden"
+                name="checkinDate"
+                th:value="${reservationForm.checkinDate}"
+              />
+              <input
+                type="hidden"
+                name="checkoutDate"
+                th:value="${reservationForm.checkoutDate}"
+              />
+              <input
+                type="hidden"
+                name="guestCount"
+                th:value="${reservationForm.guestCount}"
+              />
+              <input
+                type="hidden"
+                name="planId"
+                th:value="${reservationForm.planId}"
+              />
+              <input type="hidden" th:field="*{paymentMethod}" />
+
+              <button
+                class="btn waves-effect waves-light"
+                type="submit"
+                style="width: 100%; margin-top: 10px"
               >
-            </div>
-            <div class="center-align" style="margin-top: 10px">
-              <a href="reservation.html" class="grey-text text-darken-1"
-                >戻って修正する</a
-              >
+                予約を確定する
+              </button>
+              <!-- <div class="center-align" style="margin-top: 20px">
+                <a
+                  th:href="@{/reserve/complete}"
+                  class="btn waves-effect waves-light"
+                  >予約を確定する</a
+                >
+              </div> -->
+              <div class="center-align" style="margin-top: 10px">
+                <a href="reservation.html" class="grey-text text-darken-1"
+                  >戻って修正する</a
+                >
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
 
       <!-- フッター -->

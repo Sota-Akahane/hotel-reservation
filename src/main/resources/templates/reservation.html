@@ -12,8 +12,8 @@
       rel="stylesheet"
     />
     <!--Import internal css-->
-    <link rel="stylesheet" href="../static/css/common.css" />
-    <link rel="stylesheet" href="../static/css/reservation.css" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/reservation.css}" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,54 +58,97 @@
                 <div class="card horizontal">
                   <div class="card-image">
                     <img
-                      src="../static/img/1.png"
-                      alt="施設画像"
+                      th:src="@{/img/} + ${hotel.imagePath}"
+                      th:alt="${hotel.name}"
                       style="height: 130px"
                     />
                   </div>
                   <div class="card-stacked">
                     <div class="card-content">
-                      <h6 class="blue-text text-darken-2">海辺のホテル青空</h6>
+                      <h6
+                        class="blue-text text-darken-2"
+                        th:text="${hotel.name}"
+                      >
+                        海辺のホテル青空
+                      </h6>
                       <p
                         class="grey-text text-darken-1"
                         style="font-size: 14px"
                       >
-                        〒594-1074 <br />
-                        沖縄県那覇市1-1-1<br />
-                        電話番号: 099-1146-5567
+                        <span>〒</span
+                        ><span th:text="${hotel.zipcode}">
+                          〒594-1074 <br /> </span
+                        ><br />
+                        <span th:text="${hotel.address}">
+                          沖縄県那覇市1-1-1<br /> </span
+                        ><br />
+                        <span>電話番号: </span
+                        ><span th:text="${hotel.telephone}">
+                          電話番号: 099-1146-5567
+                        </span>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <form>
+              <form
+                th:action="@{/reserve/confirm}"
+                th:object="${reservationForm}"
+                method="post"
+              >
                 <!-- 名前 -->
                 <div class="input-field">
-                  <input id="name" type="text" required />
+                  <input
+                    id="name"
+                    type="text"
+                    th:value="${session.loginUser.name}"
+                    required
+                  />
                   <label for="name">宿泊者氏名</label>
                 </div>
 
                 <!-- メール -->
                 <div class="input-field">
-                  <input id="email" type="email" required />
+                  <input
+                    id="email"
+                    type="email"
+                    th:value="${session.loginUser.email}"
+                    required
+                  />
                   <label for="email">メールアドレス</label>
                 </div>
 
                 <!-- 電話番号 -->
                 <div class="input-field">
-                  <input id="phone" type="tel" />
+                  <input
+                    id="phone"
+                    type="tel"
+                    th:value="${session.loginUser.telephone}"
+                  />
                   <label for="phone">電話番号（任意）</label>
                 </div>
 
                 <!-- チェックイン・アウト -->
                 <div class="row">
                   <div class="input-field col s6">
-                    <input type="date" id="checkin" required />
+                    <input
+                      type="date"
+                      id="checkin"
+                      name="checkin_date"
+                      th:field="*{checkinDate}"
+                      required
+                    />
                     <label for="checkin">チェックイン日</label>
                   </div>
                   <div class="input-field col s6">
-                    <input type="date" id="checkout" required />
+                    <input
+                      type="date"
+                      id="checkout"
+                      name="checkout_date"
+                      th:field="*{checkoutDate}"
+                      required
+                    />
                     <label for="checkout">チェックアウト日</label>
                   </div>
                 </div>
@@ -113,7 +156,13 @@
                 <!-- 宿泊人数・部屋数 -->
                 <div class="row">
                   <div class="input-field col s6">
-                    <input id="guests" type="number" min="1" required />
+                    <input
+                      id="guests"
+                      type="number"
+                      min="1"
+                      th:field="*{guestCount}"
+                      required
+                    />
                     <label for="guests">宿泊人数</label>
                   </div>
                   <div class="input-field col s6">
@@ -124,12 +173,12 @@
 
                 <!-- 宿泊プラン選択 -->
                 <div class="input-field">
-                  <select required>
+                  <select name="plan_id" th:field="*{planId}" required>
                     <option value="" disabled selected>プランを選択</option>
-                    <option value="standard">素泊まりプラン</option>
-                    <option value="breakfast">朝食付きプラン</option>
-                    <option value="halfboard">2食付きプラン（朝・夕）</option>
-                    <option value="premium">特別プラン（貸切温泉付き）</option>
+                    <option value="1">素泊まりプラン</option>
+                    <option value="2">朝食付きプラン</option>
+                    <option value="3">2食付きプラン（朝・夕）</option>
+                    <option value="4">特別プラン（貸切温泉付き）</option>
                   </select>
                   <label>宿泊プラン</label>
                 </div>
@@ -141,10 +190,11 @@
                 <p>
                   <label>
                     <input
-                      name="payment"
+                      name="paymentMethod"
+                      th:field="*{paymentMethod}"
                       class="with-gap"
                       type="radio"
-                      value="credit"
+                      value="1"
                       required
                     />
                     <span>クレジットカード</span>
@@ -153,10 +203,11 @@
                 <p>
                   <label>
                     <input
-                      name="payment"
+                      name="paymentMethod"
+                      th:field="*{paymentMethod}"
                       class="with-gap"
                       type="radio"
-                      value="cash"
+                      value="2"
                     />
                     <span>現地現金払い</span>
                   </label>
@@ -164,10 +215,10 @@
                 <p>
                   <label>
                     <input
-                      name="payment"
+                      name="paymentMethod"
                       class="with-gap"
                       type="radio"
-                      value="emoney"
+                      value="3"
                     />
                     <span>電子マネー（PayPay等）</span>
                   </label>
