@@ -151,12 +151,60 @@
             </div>
 
             <!-- 予約フォーム -->
-            <a
+            <!-- <a
               th:href="@{/reserve?hotelId=} + ${hotel.id}"
               class="btn"
               style="width: 100%; margin-top: 10px"
               >予約する</a
-            >
+            > -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 部屋一覧 -->
+      <div class="section" style="margin-top: 30px">
+        <h5 class="blue-text text-darken-3">お部屋一覧</h5>
+        <div class="row" th:each="room : ${rooms}">
+          <div class="col s12">
+            <div class="card horizontal z-depth-1">
+              <div class="card-image" style="width: 180px">
+                <img
+                  th:src="@{/img/rooms/} + ${room.imagePath}"
+                  th:alt="${room.name}"
+                />
+              </div>
+
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h6 th:text="${room.name}">スタンダードツイン</h6>
+
+                  <p class="grey-text text-darken-1" style="font-size: 0.9rem">
+                    <span>定員：</span
+                    ><span th:text="${room.capacity}">2</span>名
+                  </p>
+
+                  <p>
+                    <span th:text="${room.description}">
+                      海が見える落ち着いた雰囲気のお部屋です。カップルや友人同士の旅行に最適です。
+                    </span>
+                  </p>
+
+                  <p class="price blue-text text-darken-2">
+                    ¥<span th:text="${room.price}">14,900</span
+                    ><span> / 泊</span>
+                  </p>
+                </div>
+
+                <div class="card-action right-align">
+                  <a
+                    th:href="@{/reserve?roomId=} + ${room.id}"
+                    class="btn blue lighten-1"
+                  >
+                    この部屋を予約する
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

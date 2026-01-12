@@ -2,10 +2,12 @@ package com.example.service;
 
 import com.example.domain.Hotel;
 import com.example.domain.Reservation;
+import com.example.domain.Room;
 import com.example.dto.ReservationDto;
 import com.example.form.ReservationForm;
 import com.example.repository.HotelRepository;
 import com.example.repository.ReservationRepository;
+import com.example.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +20,14 @@ public class ReservationService {
     private HotelRepository hotelRepository;
 
     @Autowired
+    private RoomRepository roomRepository;
+
+    @Autowired
     private ReservationRepository reservationRepository;
 
     public ReservationDto getReservationDto(Integer id) {
-        Hotel hotel = hotelRepository.findById(id);
+        Room room = roomRepository.findById(id);
+        Hotel hotel = hotelRepository.findById(room.getHotelId());
 
         ReservationDto reservationDto = new ReservationDto();
         reservationDto.setId(id);
