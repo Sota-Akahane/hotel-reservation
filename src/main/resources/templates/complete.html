@@ -12,8 +12,8 @@
       rel="stylesheet"
     />
     <!--Import internal css-->
-    <link rel="stylesheet" href="../static/css/common.css" />
-    <link rel="stylesheet" href="../static/css/complete.css" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/complete.css}" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,18 +26,20 @@
     <header>
       <nav class="white z-depth-1">
         <div class="nav-wrapper container">
-          <a href="top.html" class="brand-logo">
+          <a th:href="@{/top}" class="brand-logo">
             <img
-              src="../static/img/logo.png"
+              th:src="@{/img/logo.png}"
               alt="宿泊予約サイトロゴ"
               class="logo-img"
             />
           </a>
 
           <ul class="right hide-on-med-and-down">
-            <li><a href="hotel_list.html" class="black-text">施設一覧</a></li>
+            <li>
+              <a th:href="@{/showHotelList}" class="black-text">施設一覧</a>
+            </li>
             <li><a href="mypage.html" class="black-text">マイページ</a></li>
-            <li><a href="login.html" class="black-text">ログイン</a></li>
+            <li><a th:href="@{/toLogin}" class="black-text">ログイン</a></li>
             <li>
               <a href="register.html" class="btn blue lighten-1 white-text"
                 >会員登録</a
@@ -57,7 +59,7 @@
           </p>
           <p class="black-text">チェックイン当日を心よりお待ちしております。</p>
           <div style="margin-top: 20px">
-            <a href="top.html" class="btn green darken-1">トップへ戻る</a>
+            <a th:href="@{/top}" class="btn green darken-1">トップへ戻る</a>
           </div>
         </div>
       </div>
