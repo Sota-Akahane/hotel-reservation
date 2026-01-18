@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!--Import Google Icon Font-->
     <link
@@ -21,22 +21,25 @@
 
     <title>宿泊予約フォーム</title>
   </head>
+
   <body class="grey lighten-4">
     <header>
       <nav class="white z-depth-1">
         <div class="nav-wrapper container">
-          <a href="top.html" class="brand-logo">
+          <a th:href="@{/top}" class="brand-logo">
             <img
-              src="../static/img/logo.png"
+              th:src="@{/img/logo.png}"
               alt="宿泊予約サイトロゴ"
               class="logo-img"
             />
           </a>
 
           <ul class="right hide-on-med-and-down">
-            <li><a href="hotel_list.html" class="black-text">施設一覧</a></li>
+            <li>
+              <a th:href="@{/showHotelList}" class="black-text">施設一覧</a>
+            </li>
             <li><a href="mypage.html" class="black-text">マイページ</a></li>
-            <li><a href="login.html" class="black-text">ログイン</a></li>
+            <li><a th:href="@{/toLogin}" class="black-text">ログイン</a></li>
             <li>
               <a href="register.html" class="btn blue lighten-1 white-text"
                 >会員登録</a
