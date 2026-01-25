@@ -29,6 +29,28 @@ public class UserRepository {
     };
 
     /**
+     * ユーザを登録する.
+     *
+     * @param user 登録ユーザ
+     */
+    public void insert(User user) {
+        String sql =
+                """
+                INSERT INTO users(name,email,password,telephone) VALUES
+                 (:name,:email,:password,:telephone)
+                """;
+
+        SqlParameterSource param
+                = new MapSqlParameterSource()
+                .addValue("name", user.getName())
+                .addValue("email", user.getEmail())
+                .addValue("password", user.getPassword())
+                .addValue("telephone", user.getTelephone());
+
+        template.update(sql, param);
+    }
+
+    /**
      * メールアドレスとパスワードでユーザを検索する.
      *
      * @param email メールアドレス
