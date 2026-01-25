@@ -24,7 +24,7 @@ public class RegisterUserController {
      * @return ユーザ登録画面
      */
     @GetMapping("/toRegister")
-    public String toRegister() {
+    public String toRegister(RegisterUserForm form) {
         return "register";
     }
 
@@ -38,6 +38,6 @@ public class RegisterUserController {
     public String register(RegisterUserForm form) {
         registerUserService.registerUser(form);
 
-        return "hotel_list";
+        return "redirect:/top";
     }
 }
